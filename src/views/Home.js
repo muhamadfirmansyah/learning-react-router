@@ -37,19 +37,36 @@ class Home extends React.Component
         return (
             <div>
                 <Navbar />
-                    <h1>Home Page</h1>
-
-                    { this.state.skills.map((item) => 
-                        <div key={item.id}>
-                            <img src={item.image.default } alt={item.name} />
-                            <h3>{ item.name }</h3>
-                            <div dangerouslySetInnerHTML={{ __html: item.description }}></div>
-                        </div>
-                    ) }
+                    <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
+                    <div style={container}>
+                        { this.state.skills.map((item) => 
+                            <div key={item.id} style={card}>
+                                <img src={item.image.default } alt={item.name} style={ img } />
+                                <h3>{ item.name }</h3>
+                                <div dangerouslySetInnerHTML={{ __html: item.description }}></div>
+                            </div>
+                        ) }
+                    </div>
                 <Footer />
             </div>
         )
     }
+}
+
+const container = {
+    display: "flex",
+    padding: "0 6rem",
+    justifyContent: "space-between",
+}
+
+const card = {
+    width: "20%",
+    height: "15rem",
+}
+
+const img = {
+    width: "100%",
+    height: "100%"
 }
 
 export default Home;
