@@ -1,4 +1,4 @@
-import Reeact from 'react'
+import React from 'react'
 import Home from './views/Home'
 
 const App = () => {
