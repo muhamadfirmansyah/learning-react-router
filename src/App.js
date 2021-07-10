@@ -2,6 +2,7 @@ import React from 'react'
 import Home from './views/Home'
 
 import { Route } from 'react-router-dom'
+import About from './views/About'
 
 /*
 * Home = '/'
@@ -12,7 +13,10 @@ import { Route } from 'react-router-dom'
 const App = () => {
   return (
     <div>
-      <Route path="/" component={Home} />
+
+      <Route path="/" exact component={Home} />
+
+      <Route path="/about" exact component={About} />
     </div>
   )
 }
