@@ -1,8 +1,8 @@
 import React from 'react'
 import MainLayout from '../layouts/MainLayout'
+import { Link } from 'react-router-dom'
 
-class Home extends React.Component
-{
+class Home extends React.Component {
     state = {
         skills: [
             {
@@ -34,18 +34,20 @@ class Home extends React.Component
 
     render() {
         return (
-                <MainLayout>
-                    <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
-                    <div style={container}>
-                        { this.state.skills.map((item) => 
-                            <div key={item.id} style={card}>
-                                <img src={item.image.default } alt={item.name} style={ img } />
-                                <h3>{ item.name }</h3>
-                                <div dangerouslySetInnerHTML={{ __html: item.description }}></div>
-                            </div>
-                        ) }
-                    </div>
-                </MainLayout>
+            <MainLayout>
+                <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
+                <div style={container}>
+                    {this.state.skills.map((item) =>
+                        <div key={item.id} style={card}>
+                            <Link to={`/detail/${item.id}`} style={link}>
+                                <img src={item.image.default} alt={item.name} style={img} />
+                                <h3 style={{ marginBottom: "0.2rem" }}>{item.name}</h3>
+                                <p dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </MainLayout>
         )
     }
 }
@@ -64,6 +66,11 @@ const card = {
 const img = {
     width: "100%",
     height: "100%"
+}
+
+const link = {
+    textDecoration: 'none',
+    color: '#000000'
 }
 
 export default Home;
