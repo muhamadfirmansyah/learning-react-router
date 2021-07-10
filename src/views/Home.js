@@ -1,6 +1,5 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
-import Footer from '../components/Footer'
+import MainLayout from '../layouts/MainLayout'
 
 class Home extends React.Component
 {
@@ -35,8 +34,7 @@ class Home extends React.Component
 
     render() {
         return (
-            <div>
-                <Navbar />
+                <MainLayout>
                     <h1 style={{ paddingLeft: "6rem" }}>Home Page</h1>
                     <div style={container}>
                         { this.state.skills.map((item) => 
@@ -47,8 +45,7 @@ class Home extends React.Component
                             </div>
                         ) }
                     </div>
-                <Footer />
-            </div>
+                </MainLayout>
         )
     }
 }
